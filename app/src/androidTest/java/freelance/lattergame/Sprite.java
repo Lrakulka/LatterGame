@@ -15,7 +15,7 @@ import android.graphics.Rect;
 public class Sprite {
     private int[] rows; // Sprite rows and columns
     private int spriteId;   // Sprite id in resources
-    private Bitmap spriteBitMap;    // Bitmap of sprite
+    private Bitmap[][] spriteImages;    // Images of sprite
     private int spriteHeight;   // Height of one sprite image
     private int spriteWidth;    // Width of one sprite image
 
@@ -30,14 +30,21 @@ public class Sprite {
      * @return true if all initialized
      */
     public boolean init(Resources res) {
-        spriteBitMap = BitmapFactory.decodeResource(res, spriteId);
-        spriteHeight = spriteBitMap.getHeight() / rows.length;
-        spriteWidth = spriteBitMap.getWidth() / rows[0];
+        Bitmap spriteBitMap = BitmapFactory.decodeResource(res, spriteId);
         if (spriteBitMap == null) {
             return false;
-        } else {
-            return true;
         }
+        spriteHeight = spriteBitMap.getHeight() / rows.length;
+        spriteWidth = spriteBitMap.getWidth() / rows[0];
+        spriteImages = new Bitmap[rows.length][];
+        for (int i = 0; i < rows.length; ++i) {
+            spriteImages[i] = new Bitmap[rows[i]];
+            for (int j = 0; j < rows[i]; ++j) {
+                spriteImages[i][j] = Bitmap.createBitmap(spriteBitMap, i * spriteHeight,
+                        j * spriteWidth, (1 + i) * spriteHeight, (1 + j) * spriteWidth);
+            }
+        }
+        return true;
     }
 
     /**
@@ -47,16 +54,14 @@ public class Sprite {
      * @param dest position and size of sprite image in canvas
      * @param canvas container of current sprites images
      * @param paint May be null. The paint used to draw the bitmap
-     * @return true if all fine alse false
+     * @return true if all fine also false
      */
     public boolean drawSprite(int row, int column, final Rect dest, final Canvas canvas,
                               final Paint paint) {
         if (row > rows.length || row < 0 || rows[row] < column) {
             return false;
         }
-        Rect src = new Rect(row * spriteHeight, column * spriteWidth, (1 + row) * spriteHeight,
-                (1 + column) * spriteWidth);
-        canvas.drawBitmap(spriteBitMap, src, dest, paint);
+        canvas.drawBitmap(spriteImages[row][column], null, dest, paint);
         return true;
     }
 }
