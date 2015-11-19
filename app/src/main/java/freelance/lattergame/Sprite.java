@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
@@ -36,8 +37,8 @@ public class Sprite {
         for (int i = 0; i < rows.length; ++i) {
             spriteImages[i] = new Bitmap[rows[i]];
             for (int j = 0; j < rows[i]; ++j) {
-                spriteImages[i][j] = Bitmap.createBitmap(spriteBitMap, i * spriteHeight,
-                        j * spriteWidth, (1 + i) * spriteHeight, (1 + j) * spriteWidth);
+                spriteImages[i][j] = Bitmap.createBitmap(spriteBitMap, j * spriteWidth,
+                        i * spriteHeight, spriteWidth, spriteHeight);
             }
         }
     }

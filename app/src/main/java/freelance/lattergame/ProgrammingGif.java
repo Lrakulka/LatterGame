@@ -4,6 +4,8 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by asd on 16/11/15.
@@ -53,23 +55,22 @@ public class ProgrammingGif {
     public void getWithelethetion(final Canvas canvas, long time) {
         if (isShow) {
             sprite.drawSprite(currRow, currCol, positionImages[currRow][currCol], canvas, paint);
-            if (time - privTime > timeImages[currRow][currCol] + curDelay) {
-                currRow++;
+            if (repeat != 0 && time - privTime > timeImages[currRow][currCol] + curDelay) {
+                currCol++;
                 curDelay = 0;
-                if (currCol > rows[currRow]) {
+                if (currCol == rows[currRow]) {
                     currCol = 0;
                     currRow++;
                 }
-                if (currRow > rows.length) {
+                if (currRow == rows.length) {
                     currRow = 0;
-                    currRow++;
                     if (repeat > 0) {
                         repeat--;
                         curDelay = delayAnimation;
                     }
                 }
+                privTime = time;
             }
-            privTime = time;
         }
     }
 
