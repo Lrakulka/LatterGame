@@ -27,13 +27,9 @@ public class Sprite {
     /**
      * Initialized parameters of sprite
      * @param res - resources of project
-     * @return true if all initialized
      */
-    public boolean init(Resources res) {
+    public void init(Resources res) {
         Bitmap spriteBitMap = BitmapFactory.decodeResource(res, spriteId);
-        if (spriteBitMap == null) {
-            return false;
-        }
         spriteHeight = spriteBitMap.getHeight() / rows.length;
         spriteWidth = spriteBitMap.getWidth() / rows[0];
         spriteImages = new Bitmap[rows.length][];
@@ -44,7 +40,6 @@ public class Sprite {
                         j * spriteWidth, (1 + i) * spriteHeight, (1 + j) * spriteWidth);
             }
         }
-        return true;
     }
 
     /**
