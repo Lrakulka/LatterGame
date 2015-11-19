@@ -64,9 +64,9 @@ public class ProgrammingGif {
                 }
                 if (currRow == rows.length) {
                     currRow = 0;
+                    curDelay = delayAnimation;
                     if (repeat > 0) {
                         repeat--;
-                        curDelay = delayAnimation;
                     }
                 }
                 privTime = time;
