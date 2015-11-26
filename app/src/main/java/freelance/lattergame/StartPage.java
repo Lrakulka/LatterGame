@@ -1,11 +1,21 @@
 package freelance.lattergame;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceView;
+import android.view.View;
+import android.widget.Toast;
+
+import java.util.Date;
 
 public class StartPage extends AppCompatActivity {
+    private SurfaceView surfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +43,15 @@ public class StartPage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    public void onClick(View w) {
+        Toast.makeText(this, "Руддщш", Toast.LENGTH_SHORT).show();
     }
 }
