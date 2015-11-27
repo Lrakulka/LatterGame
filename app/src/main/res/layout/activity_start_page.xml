@@ -1,55 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-    <AbsoluteLayout
-        android:layout_width="match_parent"
-        android:layout_height="354dp"
-        android:layout_x="0dp"
-        android:id="@+id/absolute"
-        android:layout_y="3dp">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="#c74bff" />
 
+    <SurfaceView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:id="@+id/surfaceView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-        <freelance.lattergame.pan.Pancake
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/Pancake"
-            android:layout_x="52dp"
-            android:layout_y="66dp"
-            android:src="#2b19ff" />
-
-        <freelance.lattergame.pan.Pancake
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="#8b19ff"
-            android:id="@+id/Pancake2"
-            android:layout_x="192dp"
-            android:layout_y="101dp" />
-
-        <freelance.lattergame.pan.Pancake
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="#7b19ff"
-            android:id="@+id/Pancake3"
-            android:layout_x="83dp"
-            android:layout_y="150dp" />
-
-        <freelance.lattergame.pan.Pancake
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="#6b19ff"
-            android:id="@+id/Pancake4"
-            android:layout_x="207dp"
-            android:layout_y="143dp" />
-
-        <freelance.lattergame.pan.Pancake
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="#0b19ff"
-            android:id="@+id/Pancake5"
-            android:layout_x="230dp"
-            android:layout_y="85dp" />
-    </AbsoluteLayout>
-</AbsoluteLayout>
+</RelativeLayout>
