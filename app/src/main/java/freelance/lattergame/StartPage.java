@@ -1,57 +1,34 @@
 package freelance.lattergame;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Rect;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.SurfaceView;
-import android.view.View;
-import android.widget.Toast;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AbsoluteLayout;
 
-import java.util.Date;
+import java.util.ArrayList;
 
-public class StartPage extends AppCompatActivity {
-    private SurfaceView surfaceView;
+import freelance.lattergame.pan.Pancake;
+import freelance.lattergame.pan.PancakeMoveListener;
+import freelance.lattergame.pan.PancakePan;
+
+public class StartPage extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_start_page);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_start_page, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    public void onClick(View w) {
-        Toast.makeText(this, "Руддщш", Toast.LENGTH_SHORT).show();
+        AbsoluteLayout layout = (AbsoluteLayout) findViewById(R.id.absolute);
+        ArrayList<Pancake> pancakes = new ArrayList<>();
+        pancakes.add((Pancake) findViewById(R.id.Pancake));
+        pancakes.add((Pancake) findViewById(R.id.Pancake5));
+        pancakes.add((Pancake) findViewById(R.id.Pancake2));
+        pancakes.add((Pancake) findViewById(R.id.Pancake3));
+        pancakes.add((Pancake) findViewById(R.id.Pancake4));
+        PancakePan pan = new PancakePan(layout, null);
+        pan.setPancakes(pancakes);
     }
 }

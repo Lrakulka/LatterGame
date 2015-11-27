@@ -1,5 +1,7 @@
 package freelance.lattergame.pan;
 
+import android.view.View;
+
 /**
  * Created by asd on 26/11/15.
  */
