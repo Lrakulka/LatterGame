@@ -9,19 +9,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceView;
+import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import freelance.lattergame.pan.Pancake;
+import freelance.lattergame.pan.PancakePan;
+
 public class StartPage extends AppCompatActivity {
-    private SurfaceView surfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
-        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
-        surfaceView.setZOrderOnTop(true);    // necessary
-        surfaceView.getHolder().setFormat(PixelFormat.TRANSPARENT);
     }
 
     @Override
@@ -49,44 +50,14 @@ public class StartPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Rect[][] position = new Rect[4][3];
-        int[][] time = new int[4][3];
-        int[] rows = new int[4];
-        for (int i = 0; i < position.length; ++i) {
-
-            rows[i] = 3;
-            for (int j = 0; j < position[i].length; ++j) {
-                position[i][j] = new Rect(20, 20, 400, 400);
-                time[i][j] = 500;
-            }
-        }
-        final ProgrammingGif programmingGif = new ProgrammingGif(R.drawable.major, rows,
-                position, time, 1000, -1);
-        programmingGif.init(getResources());
-        Thread thread = new Thread(new Runnable() {
-            Canvas canvas;
-            @Override
-            public void run() {
-                Date time = new Date();
-
-                long l = time.getTime();
-                while (time.getTime() - l < 1000000) {
-                    time = new Date();
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    canvas = surfaceView.getHolder().lockCanvas();
-                    if (canvas != null) {
-                        canvas.drawColor(Color.TRANSPARENT);
-                        programmingGif.getWithelethetion(canvas, time.getTime());
-                        surfaceView.getHolder().unlockCanvasAndPost(canvas);
-                    }
-                }
-            }
-        });
-        thread.start();
+        ArrayList<Pancake> pances = new ArrayList<>();
+        pances.add((Pancake) findViewById(R.id.surfaceView));
+        pances.add((Pancake) findViewById(R.id.surfaceView2));
+        pances.add((Pancake) findViewById(R.id.surfaceView3));
+        pances.add((Pancake) findViewById(R.id.surfaceView4));
+        pances.add((Pancake) findViewById(R.id.surfaceView5));
+        PancakePan pan = new PancakePan((RelativeLayout) findViewById(R.id.relativelayout), null);
+        pan.setPancakes(pances);
 
     }
 }

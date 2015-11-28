@@ -2,22 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:id="@+id/relativelayout"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="#c74bff" />
-
-    <SurfaceView
-        android:layout_width="fill_parent"
-        android:layout_height="400dp"
+    <freelance.lattergame.pan.Pancake
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/surfaceView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <freelance.lattergame.pan.Pancake
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/surfaceView2"
+        android:layout_below="@+id/surfaceView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <freelance.lattergame.pan.Pancake
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/surfaceView3"
+        android:layout_below="@+id/surfaceView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="115dp" />
+
+    <freelance.lattergame.pan.Pancake
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/surfaceView4"
+        android:layout_alignTop="@+id/surfaceView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <freelance.lattergame.pan.Pancake
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/surfaceView5"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/surfaceView3"
+        android:layout_alignStart="@+id/surfaceView3" />
 </RelativeLayout>
