@@ -1,4 +1,4 @@
-package freelance.lattergame;
+package freelance.lattergame.animation;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

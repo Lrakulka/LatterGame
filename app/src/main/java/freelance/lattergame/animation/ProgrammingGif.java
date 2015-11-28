@@ -1,11 +1,9 @@
-package freelance.lattergame;
+package freelance.lattergame.animation;
 
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.util.Log;
-import android.widget.Toast;
 
 /**
  * Created by asd on 16/11/15.
