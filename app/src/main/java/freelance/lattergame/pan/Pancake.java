@@ -55,7 +55,7 @@ public class Pancake extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         // Make SurfaceView transparent
-        if (android.os.Build.VERSION.SDK_INT > 14) {
+        if (android.os.Build.VERSION.SDK_INT > 16) {
             this.setBackground(getContext().getResources().getDrawable(R.drawable.pancake_plate));
         }
         else{
