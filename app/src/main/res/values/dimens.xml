@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="pancake_radius">50dp</dimen>
+    <dimen name="inside_pancake_progress_bar_vertical_padding">16dp</dimen>
+    <dimen name="inside_pancake_progress_bar_horizontal_padding">16dp</dimen>
 </resources>
