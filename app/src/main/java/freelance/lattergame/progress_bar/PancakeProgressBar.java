@@ -87,6 +87,7 @@ public class PancakeProgressBar extends SurfaceView implements SurfaceHolder.Cal
         bottomShift = topShift + pancakeSize.y;
         leftShift = (getWidth() - R.dimen.activity_vertical_margin * 2) / length;
         pancakes = new ArrayList<>(length);
+        dsts = new ArrayList<>(length);
         float currLeftShift = R.dimen.activity_horizontal_margin;
         for (int i = 0; i < length; ++i) {
             pancakes.add(getEmptyPancake(i));
@@ -138,10 +139,11 @@ public class PancakeProgressBar extends SurfaceView implements SurfaceHolder.Cal
             for (int i = 0; i < pancakes.size(); ++i) {
                 canvas.drawBitmap(pancakes.get(i).getImager(), null, dsts.get(i), null);
             }
+            this.getHolder().unlockCanvasAndPost(canvas);
         }
     }
 
-    public void addPancakes(Pancake pancake, int position) {
+    public void putPancakes(Pancake pancake, int position) {
         if (position >= pancakes.size() || position < 0) {
             throw new IndexOutOfBoundsException("Invalid position " + position +
                     ", must be in range 0 to " + pancakes.size());
