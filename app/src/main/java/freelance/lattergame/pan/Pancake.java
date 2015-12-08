@@ -2,6 +2,9 @@ package freelance.lattergame.pan;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
@@ -15,6 +18,7 @@ import freelance.lattergame.R;
 public class Pancake extends SurfaceView implements SurfaceHolder.Callback {
     private float positionX;
     private float positionY;
+    private Bitmap bitmap;
 
     {
         getHolder().addCallback(this);
@@ -48,6 +52,16 @@ public class Pancake extends SurfaceView implements SurfaceHolder.Callback {
         this.positionY = positionY;
     }
 
+    public Bitmap getImager() { // To Do - finish it
+        if (bitmap == null) {
+            bitmap = Bitmap.createBitmap(this.getWidth(),
+                    this.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            canvas.drawColor(Color.GREEN);
+        }
+        return bitmap;
+    }
+
     public void update() {
 
     }
@@ -57,8 +71,7 @@ public class Pancake extends SurfaceView implements SurfaceHolder.Callback {
         // Make SurfaceView transparent
         if (android.os.Build.VERSION.SDK_INT > 16) {
             this.setBackground(getContext().getResources().getDrawable(R.drawable.pancake_plate));
-        }
-        else{
+        } else {
             this.setBackgroundDrawable(getContext().getResources().
                     getDrawable(R.drawable.pancake_plate));
         }
